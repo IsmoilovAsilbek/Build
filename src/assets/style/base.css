@@ -1,0 +1,126 @@
+:root {
+    --bg: #FDDDCF;
+    --grad: linear-gradient(45deg, #ff3f3a 0%, #f75e05 100%);
+    --dark: #1b1b1f;
+    --text: #1a1a1a;
+    --muted: #5d5d66;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Mulish', 'Segoe UI', Arial, sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+button, input { font: inherit; }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.section-head__eyebrow {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #f75e05;
+}
+
+.section-head__title {
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 130%;
+    margin-top: 8px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0 32px;
+    height: 48px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--grad);
+    transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(247, 94, 5, .35);
+    filter: brightness(1.05);
+}
+
+.btn:active { transform: translateY(0); }
+
+.btn--light {
+    background: #fff;
+    color: var(--text);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--text);
+    box-shadow: inset 0 0 0 2px #f75e05;
+}
+
+/* scroll animatsiyasi */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .section { padding: 64px 0; }
+    .section-head { margin-bottom: 36px; }
+    .section-head__title { font-size: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+}
